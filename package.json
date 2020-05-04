@@ -6,7 +6,7 @@
   "author": "Ivan Trubach",
   "main": "index.mjs",
   "scripts": {
-    "gen": "npx @zeit/ncc build -m"
+    "gen": "npx @zeit/ncc@0.22.1 build -m"
   },
   "dependencies": {
     "@actions/core": "^1.2.4"
