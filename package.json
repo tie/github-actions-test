@@ -4,7 +4,10 @@
   "license": "Unlicese",
   "description": "GitHub Actions Test",
   "author": "Ivan Trubach",
-  "main": "index.js",
+  "main": "index.mjs",
+  "scripts": {
+    "gen": "npx @zeit/ncc build"
+  },
   "dependencies": {
     "@actions/core": "^1.2.4"
   }
