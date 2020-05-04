@@ -1,0 +1,10 @@
+name: 'Example'
+description: 'Say hello world'
+inputs:
+  name:
+    description: 'name'
+    required: true
+    default: 'world'
+runs:
+  using: 'node12'
+  main: 'index.js'

@@ -1,0 +1,11 @@
+{
+  "name": "github-actions-test",
+  "version": "0.0.1",
+  "license": "Unlicese",
+  "description": "GitHub Actions Test",
+  "author": "Ivan Trubach",
+  "main": "index.js",
+  "dependencies": {
+    "@actions/core": "^1.2.4"
+  }
+}
