@@ -1,0 +1,10 @@
+name: Main
+on: push
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tie/github-actions-test
+        with:
+          name: world
