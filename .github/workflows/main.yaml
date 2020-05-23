@@ -2,6 +2,16 @@ name: Main
 on: push
 
 jobs:
+  win32:
+    runs-on: windows-latest
+    steps:
+      - run: |
+          echo Running on ${{ runner.os }}
+          cd
+          mkdir sdk
+          cd sdk
+          ls -al
+          pwd
   main:
     runs-on: ubuntu-latest
     steps:
