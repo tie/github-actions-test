@@ -8,3 +8,5 @@ jobs:
       - uses: tie/github-actions-test@master
         with:
           name: world
+      - run: |
+          echo Running on ${{ runner.os }}
