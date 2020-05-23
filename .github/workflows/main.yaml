@@ -5,14 +5,15 @@ jobs:
   win32:
     runs-on: windows-latest
     steps:
-      - run: |
+      - id: vars
+        run: |
           echo Running on ${{ runner.os }}
           cd $HOME
           mkdir sdk
           cd sdk
-          echo $HOME/sdk
-          echo $(pwd)
-        #shell: bash
+          echo "::set-output name=sdk::$PWD"
+      - run: |
+          echo ${{ steps.vars.outputs.sdk }}
   main:
     runs-on: ubuntu-latest
     steps:
