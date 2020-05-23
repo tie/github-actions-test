@@ -8,7 +8,7 @@ jobs:
       - id: vars
         run: |
           echo Running on ${{ runner.os }}
-          echo "::group::"
+          echo "::group::Output"
           cd $HOME
           mkdir sdk
           cd sdk
