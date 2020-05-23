@@ -10,8 +10,10 @@ jobs:
           cd
           mkdir sdk
           cd sdk
-          ls -al
           pwd
+          echo $HOME/sdk
+          ls $HOME/sdk
+        #shell: bash
   main:
     runs-on: ubuntu-latest
     steps:
