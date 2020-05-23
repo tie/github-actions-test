@@ -11,6 +11,7 @@ jobs:
           mkdir sdk
           cd sdk
           pwd
+          touch yay
           echo $HOME/sdk
           ls $HOME/sdk
         #shell: bash
