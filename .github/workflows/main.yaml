@@ -7,13 +7,11 @@ jobs:
     steps:
       - run: |
           echo Running on ${{ runner.os }}
-          cd
+          cd $HOME
           mkdir sdk
           cd sdk
-          pwd
-          touch yay
           echo $HOME/sdk
-          ls $HOME/sdk
+          echo $(pwd)
         #shell: bash
   main:
     runs-on: ubuntu-latest
