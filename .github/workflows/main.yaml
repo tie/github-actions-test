@@ -13,12 +13,10 @@ jobs:
           echo "::set-output name=sdk::$PWD"
           echo "::endgroup::"
           echo "::group::tip"
-          echo "::set-output name=tip::$(
-            curl -f -s -L "$gotip" | awk '/"commit"/{print substr($2,2,40);exit}'
-          )"
+          curl -fsL -o HEAD.json 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON'
+          awk '/"commit"/{print substr($2,2,40);exit}' HEAD.json >HEAD
+          echo "::set-output name=tip::$(cat HEAD)"
           echo "::endgroup::"
-        env:
-          gotip: 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON'
 
       - name: Print
         run: |
