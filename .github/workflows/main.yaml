@@ -8,10 +8,12 @@ jobs:
       - id: vars
         run: |
           echo Running on ${{ runner.os }}
+          echo "::group::"
           cd $HOME
           mkdir sdk
           cd sdk
           echo "::set-output name=sdk::$PWD"
+          echo "::endgroup::"
       - run: |
           echo ${{ steps.vars.outputs.sdk }}
   main:
