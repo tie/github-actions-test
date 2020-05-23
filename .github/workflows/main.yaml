@@ -5,15 +5,17 @@ jobs:
   win32:
     runs-on: windows-latest
     steps:
-      - id: vars
+      - name: Variables
+        id: vars
         run: |
-          echo Running on ${{ runner.os }}
-          echo "::group::Output"
-          cd $HOME
-          mkdir sdk
-          cd sdk
+          echo "::group::sdk"
+          cd $HOME && mkdir sdk && cd sdk
           echo "::set-output name=sdk::$PWD"
           echo "::endgroup::"
+          echo "::group::tip"
+          curl -f -s -L -o HEAD.json 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON'
+          echo "::endgroup::"
+
       - run: |
           echo ${{ steps.vars.outputs.sdk }}
   main:
