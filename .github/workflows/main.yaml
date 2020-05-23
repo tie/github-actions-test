@@ -13,11 +13,16 @@ jobs:
           echo "::set-output name=sdk::$PWD"
           echo "::endgroup::"
           echo "::group::tip"
-          curl -f -s -L 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON' |
-            awk '/"commit"/{print substr($2,2,40);exit}'
+          echo "::set-output name=tip::$(
+            curl -f -s -L "$gotip" | awk '/"commit"/{print substr($2,2,40);exit}'
+          )"
           echo "::endgroup::"
+        env:
+          gotip: 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON'
 
-      - run: |
+      - name: Print
+        run: |
+          echo ${{ steps.vars.outputs.tip }}
           echo ${{ steps.vars.outputs.sdk }}
   main:
     runs-on: ubuntu-latest
