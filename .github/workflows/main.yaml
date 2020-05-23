@@ -13,8 +13,8 @@ jobs:
           echo "::set-output name=sdk::$PWD"
           echo "::endgroup::"
           echo "::group::tip"
-          curl -f -s -L -o HEAD.json 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON'
-          awk '/"commit"/{print substr($2,2,40);exit}' < HEAD.json
+          curl -f -s -L 'https://go.googlesource.com/go/+/refs/heads/master?format=JSON' |
+            awk '/"commit"/{print substr($2,2,40);exit}'
           echo "::endgroup::"
 
       - run: |
